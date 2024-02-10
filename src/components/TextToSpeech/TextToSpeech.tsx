@@ -1,7 +1,7 @@
 "use client";
 import { sendTextToOpenAI } from "@/logic/sendTextToOpenAi";
 import { FormEvent, useContext, useState } from "react";
-import { AppContext } from "./isPlayingContext";
+import { AppContext } from "../isPlayingContext";
 
 export const TextToSpeech = () => {
   const [userText, setUserText] = useState("");

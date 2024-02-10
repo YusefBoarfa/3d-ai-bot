@@ -1,5 +1,5 @@
-import { ChatBotCanvas } from "@/components/ChatBotCanvas";
-import { TextToSpeech } from "@/components/TextToSpeech";
+import { ChatBotCanvas } from "@/components/ChatBotCanvas/ChatBotCanvas";
+import { TextToSpeech } from "@/components/TextToSpeech/TextToSpeech";
 import { IsPlayingProvider } from "@/components/isPlayingContext";
 
 export default function Home() {
