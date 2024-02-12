@@ -10,10 +10,10 @@ export async function POST(request: Request) {
   const chatCompletion: OpenAI.Chat.ChatCompletion =
     await openai.chat.completions.create({
       messages: [{ role: "user", content: userText }],
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
     });
   return NextResponse.json(
-    { message: `You said: ${userText}` },
+    { message: `${chatCompletion.choices[0].message.content}` },
     { status: 200 }
   );
 }

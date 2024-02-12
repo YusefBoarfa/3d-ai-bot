@@ -9,10 +9,8 @@ export const TextToSpeech = () => {
   const { setIsPlaying } = useContext(AppContext);
   const synth = typeof window !== "undefined" ? window.speechSynthesis : null;
   const voices = synth?.getVoices();
-  console.log(voices);
-  const seletedVoice = voices?.find(
-    (voice) => voice.name === "Google UK English Female"
-  ); // Other voice that sounds good Karen, Tessa, Trinoids
+
+  const seletedVoice = voices?.find((voice) => voice.name === "Google español"); // Other voice that sounds good Karen, Tessa, Trinoids
 
   const speak = (text: string) => {
     const utterThis = new SpeechSynthesisUtterance(text);
@@ -20,6 +18,7 @@ export const TextToSpeech = () => {
     utterThis.rate = 0.8;
     synth?.speak(utterThis);
     setIsPlaying(true);
+    console.log(synth);
     utterThis.onend = () => {
       setIsPlaying(false);
     };
@@ -27,8 +26,8 @@ export const TextToSpeech = () => {
   const handleUserText = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    // const message = await sendTextToOpenAI(userText);
-    const message = userText;
+    const message = await sendTextToOpenAI(userText);
+
     setIsLoading(false);
     if (!message) return;
     speak(message);
