@@ -25,6 +25,7 @@ export const TextToSpeech = () => {
     const playNextPart = () => {
       if (partIndex < parts.length) {
         utterThis.text = parts[partIndex++];
+        console.log("hola");
         synth?.speak(utterThis);
       } else {
         // Si no hay más partes, detén la reproducción
